@@ -53,23 +53,6 @@
         const mymap = L.map('mapid').setView([0, 0], 1);
         const marker = L.marker([0, 0], { icon: greenIcon }).addTo(mymap);
 
-        mymap.on('zoomed', function () {
-
-            const zoom = mymap.getZoom() + 1;
-
-            const w = 50 * zoom;
-            const h = 32 * zoom;
-
-            greenIcon.options.iconSize = [w, h];
-            greenIcon.options.iconAnchor = [w / 2, h / 2];
-
-            mymap.removeLayer(marker);
-            let latlng = market.getLatLng();
-            marker = L.marker([0, 0], { icon: greenIcon }).addTo(mymap);
-            marker.setLatLng(latlng);
-
-        }
-        );
 
         const attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap </a> contributors';
 
